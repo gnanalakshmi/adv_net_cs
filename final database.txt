@@ -1,0 +1,36 @@
+ use adv_casestudy;
+  update dbo.login set LoginName='kumar' where login_id=1234;
+
+
+
+
+
+ create table category1(
+  Category  varchar(50) primary key not null
+);
+
+insert into dbo.category1 values ('pricing');
+insert into dbo.category1 values ('general');
+insert into dbo.category1 values ('layouts');
+insert into dbo.category1 values ('events');
+insert into dbo.category1 values ('others');
+
+
+ create table task1(
+  TaskID int identity primary key,
+  Title varchar(50),
+  Descriptions varchar(50),
+ FromDate  date not null ,
+ ToDate  date not null ,
+ Category varchar(50) ,
+   FOREIGN KEY (Category) REFERENCES category1(Category),
+  store_name  varchar(50)
+)
+insert into dbo.task1 values('task101','for other users','10/10/2017','11/11/2017','pricing','store101');
+
+
+
+ALTER TABLE dbo.login
+ADD LoginName varchar(50); 
+
+insert into dbo.task1 values('task101','for other users','10/10/2017','11/11/2017','pricing','store101');
